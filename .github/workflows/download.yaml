@@ -3,7 +3,7 @@ name: Download Artifact and TSC
 on:
   push:
   workflow_run:
-    workflows: ["Upload Artifact"]
+    workflows: ["Upload Typed"]
     types:
       - completed
 
@@ -19,7 +19,6 @@ jobs:
         with:
           name: typed-artifact
           path: ./src/
-          run-id: ${{ github.event.workflow_run.id }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
