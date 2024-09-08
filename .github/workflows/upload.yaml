@@ -1,4 +1,4 @@
-name: Upload Typed
+name: Upload-Typed
 
 on:
   push:
