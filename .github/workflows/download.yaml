@@ -19,9 +19,7 @@ jobs:
         with:
           name: typed-artifact
           path: ./src/
-          github-token: ${{ secrets.GH_PAT }} # token with actions:read permissions on target repo
-          repository: actions/toolkit
-          run-id: 1234
+          run-id: ${{ github.event.workflow_run.id }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
