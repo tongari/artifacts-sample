@@ -1,0 +1,33 @@
+name: Download Artifact and TSC
+
+on:
+  push:
+  workflow_run:
+    workflows: ["Upload Artifact"]
+    types:
+      - completed
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: typed-artifact
+          path: ./src/
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Check Typed
+        run: npm run tsc
+      
