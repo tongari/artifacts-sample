@@ -19,6 +19,7 @@ jobs:
           name: typed-artifact
           path: ./src/
           github-token: ${{ secrets.GH_PAT }}
+          repository: tongari/artifacts-sample
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
