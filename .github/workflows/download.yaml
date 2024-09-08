@@ -1,7 +1,6 @@
 name: Download Artifact and TSC
 
 on:
-  push:
   workflow_run:
     workflows: ["Upload Typed"]
     types:
